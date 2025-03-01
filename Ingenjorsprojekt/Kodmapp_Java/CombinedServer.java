@@ -160,12 +160,6 @@ public class CombinedServer {
                 map[y][x] = EMPTY;
             }
         }
-
-        // Hårdkoda väggar, behövs ej för tillfället.
-        // setRegion(WALL, 1, 1);
-        // setRegion(WALL, 1, 2);
-        // setRegion(WALL, 2, 1);
-
     }
 
     // En region i kartan
@@ -227,12 +221,6 @@ public class CombinedServer {
                 }
             }
             layeredPane.add(gridPanel, Integer.valueOf(1)); // Övre lagret
-
-                  // Uppdatera kartan regelbundet BEHÖVS EJ.
-       // new Timer(2000, e -> {
-        //    updateMap();
-         //   renderMap();
-       // }).start();
 
             frame.add(layeredPane);
             frame.pack();
@@ -632,51 +620,7 @@ public class CombinedServer {
             System.err.println("Error clearing the log file: " + e.getMessage());
         }
     }
-/* 
-    // Skriver ut kartan i terminalen.
-    private void renderMap() {
-        System.out.print("\033[H\033[2J");
-        System.out.flush();
 
-        System.out.print("   ");
-        for (int x = 0; x < WIDTH; x++) {
-            System.out.printf(" %2d    ", x);
-        }
-        System.out.println();
-
-        System.out.print("  +");
-        for (int x = 0; x < WIDTH; x++) {
-            System.out.print("------+");
-        }
-        System.out.println();
-
-        for (int regionY = 0; regionY < HEIGHT; regionY++) {
-            for (int subY = 0; subY < CELL_SIZE; subY++) {
-                if (subY == 0) {
-                    System.out.printf("%2d |", regionY);
-                } else {
-                    System.out.print("   |");
-                }
-
-                for (int regionX = 0; regionX < WIDTH; regionX++) {
-                    for (int subX = 0; subX < CELL_SIZE; subX++) {
-                        int globalX = regionX * CELL_SIZE + subX;
-                        int globalY = regionY * CELL_SIZE + subY;
-                        System.out.print(" " + map[globalY][globalX] + " ");
-                    }
-                    System.out.print("|");
-                }
-                System.out.println();
-            }
-
-            System.out.print("  +");
-            for (int x = 0; x < WIDTH; x++) {
-                System.out.print("------+");
-            }
-            System.out.println();
-        }
-    }
-*/
     // Läser från porten
     private void readFromSerialPort() {
         if (serialPort == null) {
